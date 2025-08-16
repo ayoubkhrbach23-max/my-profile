@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayoub Khrbach - Portfolio</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',sans-serif; scroll-behavior: smooth;}
+    body { background: linear-gradient(120deg, #74ebd5, #ACB6E5); background-size:400% 400%; animation: gradientBG 15s ease infinite; color:#333;}
+    @keyframes gradientBG {0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+    nav {position:fixed; top:0; width:100%; background:rgba(255,255,255,0.9); display:flex; justify-content:center; padding:1rem 0; z-index:1000; box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+    nav a {margin:0 1rem; text-decoration:none; color:#3498db; font-weight:600; transition:color 0.3s;}
+    nav a:hover {color:#1d6fa5;}
+
+    section {min-height:100vh; display:flex; justify-content:center; align-items:center; flex-direction:column; padding:5rem 1rem; opacity:0; transform:translateY(50px); transition: all 1s ease;}
+    section.visible {opacity:1; transform:translateY(0);}
+    
+    .profile-image {width:150px; height:150px; border-radius:50%; border:4px solid #3498db; object-fit:cover; margin-bottom:1rem; transition: transform 0.5s ease;}
+    .profile-image:hover {transform: scale(1.1) rotate(5deg);}
+
+    h1,h2 {color:#3498db; margin-bottom:1rem;}
+    p {max-width:600px; text-align:center; margin-bottom:1rem; line-height:1.5;}
+
+    .skills, .projects, .socials {display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem; margin-bottom:1.5rem;}
+    .skill, .project-card, .socials a {transition: transform 0.3s ease;}
+    .skill {background:#3498db; color:#fff; padding:0.5rem 1rem; border-radius:12px;}
+    .skill:hover {transform:scale(1.2); background:#1d6fa5;}
+    .project-card {background:#fff; padding:1rem; border-radius:15px; width:200px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.15);}
+    .project-card img {width:100%; border-radius:10px; margin-bottom:0.5rem;}
+    .project-card:hover {transform:translateY(-10px);}
+    .socials a {color:#3498db; font-size:1.5rem; margin:0 0.5rem;}
+    .socials a:hover {color:#1d6fa5; transform:translateY(-5px);}
+
+    form {display:flex; flex-direction:column; gap:0.8rem; width:100%; max-width:400px;}
+    input, textarea {padding:0.6rem; border-radius:8px; border:1px solid #ccc; outline:none;}
+    button {padding:0.6rem; border:none; border-radius:8px; background:#3498db; color:#fff; font-weight:bold; cursor:pointer; transition:background 0.3s;}
+    button:hover {background:#1d6fa5;}
+
+    @media(max-width:500px){nav a{margin:0 0.5rem;}}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home">
+    <img src="https://i.pravatar.cc/150?img=3" alt="Profile" class="profile-image">
+    <h1>Ayoub Khrbach</h1>
+    <p>تقني في إدارة المعلوماتية | شغوف بالتطوير والبرمجة | مهتم بالذكاء الاصطناعي وتكنولوجيا المعلومات.</p>
+    <div class="skills">
+      <span class="skill">HTML</span>
+      <span class="skill">CSS</span>
+      <span class="skill">JavaScript</span>
+      <span class="skill">ERP</span>
+      <span class="skill">Support</span>
+    </div>
+    <div class="socials">
+      <a href="https://github.com/" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+      <a href="mailto:ayoub@example.com">Email</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>أنا Ayoub، تقني في إدارة المعلوماتية، لدي شغف بالتطوير والبرمجة، أحب تعلم كل جديد في مجال تكنولوجيا المعلومات والذكاء الاصطناعي، وأسعى دائمًا لتحسين مهاراتي العملية.</p>
+  </section>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/200x120" alt="Project 1">
+        <h3>Project 1</h3>
+        <p>مشروع تطوير ويب باستخدام HTML و CSS</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/200x120" alt="Project 2">
+        <h3>Project 2</h3>
+        <p>مشروع إدارة بيانات باستخدام ERP</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/200x120" alt="Project 3">
+        <h3>Project 3</h3>
+        <p>نموذج تفاعلي لتقنيات الدعم الفني</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form onsubmit="alert('تم إرسال الرسالة!'); return false;">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <script>
+    // Scroll Animation for sections
+    function revealSections() {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if(top < windowHeight - 100){
+          section.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealSections);
+    window.addEventListener('load', revealSections);
+  </script>
+
+</body>
+</html>
