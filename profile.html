@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ayoub Khrbach - Portfolio</title>
+  <style>
+    /* Reset */
+    * {margin:0; padding:0; box-sizing:border-box;}
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f4f6f9;
+      color: #333;
+      transition: background 0.5s, color 0.5s;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      animation: fadeDown 1s ease;
+    }
+
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 5px solid #0077ff;
+      object-fit: cover;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    header h1 {
+      margin-top: 20px;
+      font-size: 32px;
+      color: #0077ff;
+    }
+
+    header p {
+      font-size: 18px;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .section {
+      margin: 50px 0;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section h2 {
+      font-size: 24px;
+      color: #0077ff;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #0077ff;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      list-style: none;
+    }
+
+    .skills-list li {
+      background: #0077ff;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .skills-list li:hover {
+      transform: translateY(-4px);
+      background: #005fd1;
+    }
+
+    .contact p {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+
+    a.btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 20px;
+      background: #0077ff;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    a.btn:hover {
+      background: #005fd1;
+      transform: scale(1.05);
+    }
+
+    /* Dark mode */
+    body.dark {
+      background: #121212;
+      color: #e6e6e6;
+    }
+    body.dark header h1 { color: #4fd1c5; }
+    body.dark .section h2 { color: #4fd1c5; border-color: #4fd1c5; }
+    body.dark .skills-list li { background:#4fd1c5; }
+    body.dark a.btn { background:#4fd1c5; }
+
+    /* Toggle button */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 20px;
+      background: #0077ff;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .theme-toggle:hover { background:#005fd1; }
+
+    /* Animations */
+    @keyframes fadeDown {
+      from {opacity:0; transform: translateY(-40px);}
+      to {opacity:1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+  <header>
+    <img src="me.jpg" alt="Profile Picture">
+    <h1>Ayoub Khrbach</h1>
+    <p>Technicien en gestion informatisée</p>
+    <p>📍 Morocco</p>
+  </header>
+
+  <div class="container">
+    <div class="section" id="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>Support Technique</li>
+        <li>ERP Systems</li>
+        <li>Database Management</li>
+        <li>Networking</li>
+        <li>Cybersecurity Basics</li>
+        <li>Java / HTML / CSS / JS</li>
+      </ul>
+    </div>
+
+    <div class="section" id="education">
+      <h2>Education</h2>
+      <p><strong>Diploma:</strong> Technicien en gestion informatisée</p>
+      <p><strong>Institute:</strong> Baccalauréat en sciences math avec une moyenne pondérée cumulative de 16,76</p>
+      <p><strong>Year:</strong> 2025</p>
+    </div>
+
+    <div class="section contact" id="contact">
+      <h2>Contact</h2>
+      <p>📧 Email: youremail@example.com</p>
+      <p>📱 Phone: +212 6 00 00 00 00</p>
+      <p>🌐 GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+      <a href="CV.pdf" class="btn" download>Download CV</a>
+    </div>
+  </div>
+
+  <script>
+    // Dark/Light theme toggle
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+    }
+
+    // Scroll animation
+    const sections = document.querySelectorAll(".section");
+    window.addEventListener("scroll", () => {
+      const trigger = window.innerHeight * 0.8;
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top < trigger) {
+          sec.classList.add("show");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
